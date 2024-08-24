@@ -1,0 +1,3 @@
+D:\CMake\bin\cmake.exe -E rm -f CMakeFiles\dds.dir/objects.a
+D:\mingw64\bin\ar.exe qc CMakeFiles\dds.dir/objects.a @CMakeFiles\dds.dir\objects1.rsp
+D:\mingw64\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\dds.dir/objects.a -Wl,--no-whole-archive -o dds.exe -Wl,--out-implib,libdds.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\dds.dir\linkLibs.rsp

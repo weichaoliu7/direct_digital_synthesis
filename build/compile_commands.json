@@ -1,0 +1,20 @@
+[
+{
+  "directory": "D:/graduate/vsCode/C/direct_digital_synthesis/build",
+  "command": "D:\\mingw64\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\dds.dir\\main.c.obj -c D:\\graduate\\vsCode\\C\\direct_digital_synthesis\\main.c",
+  "file": "D:/graduate/vsCode/C/direct_digital_synthesis/main.c",
+  "output": "CMakeFiles/dds.dir/main.c.obj"
+},
+{
+  "directory": "D:/graduate/vsCode/C/direct_digital_synthesis/build",
+  "command": "D:\\mingw64\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\dds.dir\\logic_block.c.obj -c D:\\graduate\\vsCode\\C\\direct_digital_synthesis\\logic_block.c",
+  "file": "D:/graduate/vsCode/C/direct_digital_synthesis/logic_block.c",
+  "output": "CMakeFiles/dds.dir/logic_block.c.obj"
+},
+{
+  "directory": "D:/graduate/vsCode/C/direct_digital_synthesis/build",
+  "command": "D:\\mingw64\\bin\\gcc.exe   -g -std=gnu11 -o CMakeFiles\\dds.dir\\nco.c.obj -c D:\\graduate\\vsCode\\C\\direct_digital_synthesis\\nco.c",
+  "file": "D:/graduate/vsCode/C/direct_digital_synthesis/nco.c",
+  "output": "CMakeFiles/dds.dir/nco.c.obj"
+}
+]
