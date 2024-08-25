@@ -31,7 +31,7 @@ typedef struct {
     double *phase;
     double *dac_output;
     double *sine_reference;
-    double *square_wave;
+    int *square_wave;
 } Data;
 
 typedef struct {
@@ -182,7 +182,7 @@ int main() {
     data.phase = (double *)malloc(num_sampling * sizeof(double));
     data.dac_output = (double *)malloc(num_sampling * sizeof(double));
     data.sine_reference = (double *)malloc(num_sampling * sizeof(double));
-    data.square_wave = (double *)malloc(num_sampling * sizeof(double));
+    data.square_wave = (int *)malloc(num_sampling * sizeof(double));
 
     // PRINT ------------------------------------------------------------------------------------------------------------
     // full scale current multiplied by shunt resistor resistance of 7-th order low-pass filter
@@ -258,7 +258,7 @@ int main() {
 
             // Square wave calculation
             double average_voltage = 0.0;
-            double square_wave = dac_output > average_voltage ? 1.0 : 0.0;
+            int square_wave = dac_output > average_voltage ? 1 : 0;
 
             // Print parameters every 0.001 seconds
             if (time - last_print_time >= print_interval) {
@@ -289,11 +289,12 @@ int main() {
     // Calculate duty cycle of square wave
     int high_count = 0;
     for (int i = 0; i < num_sampling; i++) {
-        if (data.square_wave[i] > 0.0) {
+        if (data.square_wave[i] == 1) {
             high_count++;
         }
     }
-    double duty_cycle = (double)high_count / num_sampling * 100; // Percentage
+
+    double duty_cycle = ((double)high_count / (double)num_sampling) * 2 * 100; // Percentage
     printf("Duty cycle of square wave: %.4f%%\n", duty_cycle);
 
     // Save data to file
@@ -304,7 +305,7 @@ int main() {
     }
 
     for (int i = 0; i < num_sampling; i++) {
-        fprintf(file, "%.6f\t%d\t%.6f\t%.1f\n",
+        fprintf(file, "%.6f\t%d\t%.6f\t%d\n",
                 data.time[i], (int)data.phase[i], data.dac_output[i], data.square_wave[i]);
     }
 
